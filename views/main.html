@@ -1,0 +1,13 @@
+<md-content class="content" layout="row" layout-align="center center" layout-padding layout-nowrap>
+    <div flex-gt-md="80" flex-md="80" flex-sm="80" flex-xs="95" class="challenge" layout-margin>
+        <div flex="100" class="question" >
+            <h2>{{questions[indexing].question}}
+            </h2>
+        </div>
+        <div flex="100" class="answers" md-ink-ripple="#009688" class="md-clickable" 
+             ng-click="nextQuestion($index)"
+             ng-repeat="ans in questions[indexing].answers">
+            {{ans.option}}
+        </div>
+    </div> 
+</md-content>

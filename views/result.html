@@ -1,0 +1,34 @@
+<md-content class="content1" layout="row" layout-align="center center" layout-padding layout-wrap>
+    <div flex-gt-md="70" flex-md="80" flex-sm="80" flex-xs="95" class="challenge" ng-repeat="q in questions" layout-margin>
+        <div flex="100" class="question" >
+            <h2>{{q.question}}
+            </h2>
+        </div>
+        <div flex="100" ng-if="!q.check">
+            <span>You answered incorrectly</span>
+            <div flex="100" ng-class="q.check ? 'correctAnswer' : 'wrongAnswer'" class="md-clickable" ng-class="wrongAnswer">
+                {{q.answer}}
+            </div>
+        
+            <span>Correct Answer Was</span>
+            <div flex="100" class="answers correctAnswer" class="md-clickable" class="correctAnswer">
+                {{q.correctAnswer}}
+            </div>   
+        </div>
+        <div flex="100" ng-if="q.check">
+            <span>Woah! You answered correctly</span>
+            <div flex="100" class="answers correctAnswer" class="md-clickable" class="correctAnswer">
+                {{q.correctAnswer}}
+            </div>
+        </div>
+    </div>
+    <div flex-gt-md="70" flex-md="80" flex-sm="80" flex-xs="95" class="chartClass">
+        <fusioncharts 
+            width= "100%"
+            height= "400"
+            type= "pie3d"
+            dataFormat= "json"
+            dataSource= "{{dataSource}}">
+        </fusioncharts>
+    </div>
+</md-content>
